@@ -1,26 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-type OnOffPropsType = {
-    on: boolean
-}
-
-function OnOff(props: OnOffPropsType) {
+function OnOff() {
+    let [on, setOn] = useState(false);
     const onStyle = {
         width: '30px',
         height: '20px',
         border: '1px solid black',
-        display:'inline-block',
-        padding:'2px',
-        backgroundColor: props.on ? 'green' : 'white'
+        display: 'inline-block',
+        padding: '2px',
+        backgroundColor: on ? 'green' : 'white'
     };
     const offStyle = {
         width: '30px',
         height: '20px',
         border: '1px solid black',
         marginLeft: '2px',
-        display:'inline-block',
-        padding:'2px',
-        backgroundColor: props.on ? 'white' : 'red'
+        display: 'inline-block',
+        padding: '2px',
+        backgroundColor: on ? 'white' : 'red'
     };
     const indicatorStyle = {
         width: '10px',
@@ -28,13 +25,14 @@ function OnOff(props: OnOffPropsType) {
         borderRadius: '50%',
         border: '1px solid black',
         marginLeft: '5px',
-        display:'inline-block',
-        backgroundColor: props.on ? 'green' : 'red'
+        display: 'inline-block',
+        backgroundColor: on ? 'green' : 'red'
     };
     return (
         <div>
-            <div style={onStyle}>On</div>
-            <div style={offStyle}>Off</div>
+            <div style={onStyle} onClick={() => !on && setOn(true)}>On</div>
+            {/*чтобы избежать двойного рендеринга можно проверить до вызова сетера какое значение находится в on*/}
+            <div style={offStyle} onClick={() => on && setOn(false)}>Off</div>
             <div style={indicatorStyle}></div>
         </div>
     );
