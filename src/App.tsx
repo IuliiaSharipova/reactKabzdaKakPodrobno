@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
+import OnOff from './components/OnOff/OnOff';
 
 /*function sum(a:number,b:number) {
     debugger
@@ -16,7 +17,8 @@ function App() {
     console.log('App rendering')
     return (
         <div>
-            <PageTitle title={'This is App component'}/>
+            <OnOff on={false}/>
+            {/*<PageTitle title={'This is App component'}/>
             <PageTitle title={'User'}/>
             Article 1
             <Rating value={2}/>
@@ -27,7 +29,7 @@ function App() {
             <Rating value={2}/>
             <Rating value={3}/>
             <Rating value={4}/>
-            <Rating value={5}/>
+            <Rating value={5}/>*/}
         </div>
     )
 }
